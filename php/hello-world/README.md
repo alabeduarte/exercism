@@ -23,7 +23,7 @@ If everything goes well, you will be ready to fetch your first real exercise.
 
 2. Execute the tests for an assignment.
 
-        % phpunit.phar wordy/wordy_test.php
+        % phpunit.phar ./hello-world/hello-world_test.php
 
 [PHPUnit]: http://phpunit.de
 

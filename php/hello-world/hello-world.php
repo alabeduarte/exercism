@@ -1,6 +1,6 @@
 <?php
 
-function helloWorld($name = null)
+function helloWorld($name = 'World')
 {
-  return $name ? "Hello, $name!" : 'Hello, World!';
+  return "Hello, $name!";
 }

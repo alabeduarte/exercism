@@ -4,4 +4,4 @@ COPY . /app
 WORKDIR /app
 
 RUN chmod +x phpunit.phar
-CMD ["./phpunit.phar", "./hello-world/hello-world_test.php", "--colors=always"]
+CMD ["./phpunit.phar", "./hamming/hamming_test.php", "--colors=always"]

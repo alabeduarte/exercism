@@ -1,0 +1,7 @@
+# go-lang
+
+## Running
+
+```
+$ make
+```

@@ -7,7 +7,7 @@ install:
 	docker build -t exercism-go-lang .
 
 run:
-	./docker/restart-docker-image.sh exercism-go-lang
+	../docker/restart-docker-image.sh exercism-go-lang
 
 clean:
-	./docker/clean-docker-images.sh
+	../docker/clean-docker-images.sh

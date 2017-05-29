@@ -1,6 +1,6 @@
 FROM golang:1.8
 
 COPY . /app
-WORKDIR /app/hello-world/
+WORKDIR /app/leap/
 
 CMD ["go", "test"]

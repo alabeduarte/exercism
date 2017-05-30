@@ -1,4 +1,4 @@
-.PHONY : install_and_run install run clean
+.PHONY : install_and_run install run clean submit
 
 full_run: install run
 
@@ -11,3 +11,6 @@ run:
 
 clean:
 	../docker/clean-docker-images.sh
+
+submit:
+	exercism submit $(kata)/$(kata).go --test $(kata)/$(kata)_test.go

@@ -1,7 +1,0 @@
-# go-lang
-
-## Running
-
-```
-$ make
-```

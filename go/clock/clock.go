@@ -1,56 +1,56 @@
 package clock
 
 import (
-  "fmt"
-  "strconv"
-  "time"
+	"fmt"
+	"strconv"
+	"time"
 )
 
 const testVersion = 4
 
 type Clock struct {
-  Hour int
-  Minute int
+	Hour   int
+	Minute int
 }
 
 func NewTime() time.Time {
-  t := time.Now()
+	t := time.Now()
 
-  return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
+	return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
 }
 
 func ConvertToHoursDuration(hour int) time.Duration {
-  return time.Duration(hour) * time.Hour
+	return time.Duration(hour) * time.Hour
 }
 
 func ConvertToMinutesDuration(minute int) time.Duration {
-  return time.Duration(minute) * time.Minute
+	return time.Duration(minute) * time.Minute
 }
 
 func New(hour, minute int) Clock {
-  durationHours := ConvertToHoursDuration(hour)
-  durationMinutes := ConvertToMinutesDuration(minute)
-  duration := time.Duration(durationHours.Minutes() + durationMinutes.Minutes())
+	durationHours := ConvertToHoursDuration(hour)
+	durationMinutes := ConvertToMinutesDuration(minute)
+	duration := time.Duration(durationHours.Minutes() + durationMinutes.Minutes())
 
-  clock := NewTime().Add(duration * time.Minute)
+	clock := NewTime().Add(duration * time.Minute)
 
-  return Clock{clock.Hour(), clock.Minute()}
+	return Clock{clock.Hour(), clock.Minute()}
 }
 
 func (clock Clock) Add(minute int) Clock {
-  return New(clock.Hour, clock.Minute + minute)
+	return New(clock.Hour, clock.Minute+minute)
 }
 
 func (clock Clock) String() string {
-  hour, minute := strconv.Itoa(clock.Hour), strconv.Itoa(clock.Minute)
+	hour, minute := strconv.Itoa(clock.Hour), strconv.Itoa(clock.Minute)
 
-  if clock.Hour < 10 {
-    hour = "0" + hour
-  }
+	if clock.Hour < 10 {
+		hour = "0" + hour
+	}
 
-  if clock.Minute < 10 {
-    minute = "0" + minute
-  }
+	if clock.Minute < 10 {
+		minute = "0" + minute
+	}
 
-  return fmt.Sprintf("%s:%s", hour, minute)
+	return fmt.Sprintf("%s:%s", hour, minute)
 }
